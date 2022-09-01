@@ -2,6 +2,7 @@ import Ship from "./ship";
 
 const Gameboard = () => {
   const board = [];
+  const missedShots = [];
   for (let i = 0; i < 10; i++) {
     board[i] = [];
     for (let j = 0; j < 10; j++) {
@@ -51,9 +52,19 @@ const Gameboard = () => {
     }
   };
 
-  const receiveAttack = (x, y) => {};
+  const receiveAttack = (x, y) => {
+    if (board[x][y].hasOwnProperty("ship")) {
+      let shipPos = board[x][y].shipPos;
+      board[x][y].ship.hit(shipPos);
+    } else {
+      board[x][y] = "miss";
+      missedShots.push([x, y]);
+    }
+  };
 
-  return { board, placeShip, receiveAttack };
+  const allShipsSunk = () => {};
+
+  return { board, missedShots, placeShip, receiveAttack };
 };
 
 export default Gameboard;

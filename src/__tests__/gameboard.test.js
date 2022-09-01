@@ -33,11 +33,28 @@ describe("ship placement", () => {
 });
 
 describe("attacking", () => {
-  test("track misses", () => {
-    gb.placeShip(1, 1, 1, "h");
+  test("attack hits", () => {
+    gb.placeShip(2, 1, 1, "h");
     gb.receiveAttack(1, 1);
+    expect(gb.board[1][1].ship.shipArr[0].hit).toBe(true);
+    expect(gb.board[1][2].ship.shipArr[0].hit).toBe(true);
+    expect(gb.board[1][1].ship.shipArr[1].hit).toBe(false);
+    expect(gb.board[1][2].ship.shipArr[1].hit).toBe(false);
+  });
+  test("attack misses", () => {
+    gb.placeShip(1, 1, 1, "v");
+    gb.receiveAttack(1, 2);
+    expect(gb.board[1][1].ship.shipArr[0].hit).toBe(false);
+    expect(gb.board[1][2]).toBe("miss");
+    expect(gb.missedShots[0]).toEqual([1, 2]);
+  });
+
+  test("report all ship sunked", () => {
+    gb.placeShip(1, 1, 1, "v");
+    gb.placeShip(1, 1, 4, "h");
+    gb.receiveAttack(1, 1);
+    gb.receiveAttack(1, 4);
   });
 });
 
-test.todo("report all ship sunked");
 test.todo("check for hit/miss");
