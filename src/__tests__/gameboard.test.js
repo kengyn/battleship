@@ -54,7 +54,15 @@ describe("attacking", () => {
     gb.placeShip(1, 1, 4, "h");
     gb.receiveAttack(1, 1);
     gb.receiveAttack(1, 4);
+    expect(gb.allShipsSunk()).toBe(true);
+  });
+  test("not all ship sunked", () => {
+    gb.placeShip(1, 1, 1, "v");
+    gb.placeShip(1, 1, 4, "h");
+    gb.placeShip(1, 1, 8, "h");
+    gb.receiveAttack(1, 1);
+    gb.receiveAttack(1, 4);
+    gb.receiveAttack(1, 9);
+    expect(gb.allShipsSunk()).toBe(false);
   });
 });
-
-test.todo("check for hit/miss");

@@ -62,9 +62,19 @@ const Gameboard = () => {
     }
   };
 
-  const allShipsSunk = () => {};
+  const allShipsSunk = () => {
+    let checkShips = [];
+    for (let row of board) {
+      for (let space of row) {
+        if (space.hasOwnProperty("ship")) {
+          checkShips.push(space.ship.isSunk());
+        }
+      }
+    }
+    return checkShips.every((ship) => ship == true);
+  };
 
-  return { board, missedShots, placeShip, receiveAttack };
+  return { board, missedShots, placeShip, receiveAttack, allShipsSunk };
 };
 
 export default Gameboard;
