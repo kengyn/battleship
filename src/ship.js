@@ -1,4 +1,4 @@
-const ship = (size) => {
+const Ship = (size) => {
   const shipArr = [];
   for (let i = 0; i < size; i++) {
     shipArr.push({ hit: false });
@@ -20,4 +20,4 @@ const ship = (size) => {
   return { shipArr, getLength, hit, isSunk };
 };
 
-export default ship;
+export default Ship;
