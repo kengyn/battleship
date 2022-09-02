@@ -7,14 +7,36 @@
 body {
   width: 100vw;
   height: 100vh;
+  /* display: grid;
+  justify-items: center; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.battlefield {
+  width: 60vw;
+  height: 70%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, 1fr);
-  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  place-items: center;
 }
 
 header {
   grid-area: 1 / 1 / 2 / 3;
-  font-size: calc(20vw + 1rem);
+  font-size: calc(10vw + 1rem);
+  text-align: center;
+}
+
+.player-container,
+.op-container {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 .board {
