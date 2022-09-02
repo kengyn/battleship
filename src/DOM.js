@@ -35,7 +35,6 @@ function renderFleet(player) {
   document.querySelectorAll(".cell-p1").forEach((e, i) => {
     let x, y;
     let pos = "" + i;
-
     if (i < 10) {
       x = 0;
       y = i;
@@ -45,7 +44,7 @@ function renderFleet(player) {
       y = pos[1];
     }
 
-    if (!player.board.board[x][y]) return;
+    if (player.board.board[x][y] === false) return;
     else e.classList.add("fleet");
   });
 }

@@ -20,12 +20,12 @@ const Player = (name) => {
 
     if (dir === 0) {
       dir = "h";
-      if (board.placeShip(x, y, length, dir) == false) return false;
+      if (board.placeShip(length, x, y, dir) == false) return false;
     }
 
     if (dir === 1) {
       dir = "v";
-      if (board.placeShip(x, y, length, dir) == false) return false;
+      if (board.placeShip(length, x, y, dir) == false) return false;
     }
   }
 
