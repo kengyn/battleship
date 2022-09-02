@@ -16,8 +16,4 @@ const Player = (name) => {
   return { name, playerTurn, atk };
 };
 
-const Ai = () => {
-  return "amogus";
-};
-
 export default Player;
