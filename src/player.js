@@ -13,7 +13,7 @@ const Player = (name) => {
     return player.board.receiveAttack(x, y);
   };
 
-  return { name, playerTurn, atk };
+  return { name, board, playerTurn, atk };
 };
 
 export default Player;
