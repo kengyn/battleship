@@ -56,9 +56,14 @@ const Gameboard = () => {
     if (board[x][y].hasOwnProperty("ship")) {
       let shipPos = board[x][y].shipPos;
       board[x][y].ship.hit(shipPos);
+
+      shipPos = "hit";
+      return shipPos;
     } else {
       board[x][y] = "miss";
       missedShots.push([x, y]);
+
+      return board[x][y];
     }
   };
 

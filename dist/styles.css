@@ -13,6 +13,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: lightgray;
 }
 
 .battlefield {
@@ -61,10 +62,27 @@ header {
 .cell-p1,
 .cell-p2 {
   border: solid 1px black;
+  background-color: white;
 }
 
 .cell-p1:hover,
 .cell-p2:hover {
   background-color: rgb(211, 199, 199);
   cursor: crosshair;
+}
+
+.fleet {
+  background-color: darkgray;
+}
+
+.hit {
+  background-color: gray;
+}
+
+.hit.sunk {
+  background-color: red;
+}
+
+.miss {
+  background-color: lightblue;
 }
